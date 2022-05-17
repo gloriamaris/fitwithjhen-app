@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { Button, Card, Layout, Text } from '@ui-kitten/components';
-import AuthLayout from '../../layout/AuthLayout';
-import Image from 'react-native';
-import ExploreSection from '../../components/ExploreSection/ExploreSection';
+import React, { useState, useEffect } from 'react'
+import { StyleSheet, View, ScrollView } from 'react-native'
+import { Button, Card, Text } from '@ui-kitten/components'
+import AuthLayout from '../../layout/AuthLayout'
+import BottomNavigationSection from '../../components/BottomNavigationSection'
+import ExploreSection from '../../components/ExploreSection'
 
 const UpperSection = () => (
   <>
@@ -21,28 +21,27 @@ const UpperSection = () => (
 )
 
 const HabitTrackerSection = () => {
-
   const habits = [
     {
       id: 1,
       title: 'Complete workout session',
-      tally: ["Yes", "Yes", "", ""],
+      tally: ['Yes', 'Yes', '', '']
     },
     {
       id: 2,
       title: '10-min stretching on off days',
-      tally: ["Yes", "Yes", "", ""],
+      tally: ['Yes', 'Yes', '', '']
     },
     {
       id: 3,
       title: 'Add vegetables during lunch and dinner',
-      tally: ["Yes", "Yes", "Yes", "No", "", "", ""],
+      tally: ['Yes', 'Yes', 'Yes', 'No', '', '', '']
     },
     {
       id: 4,
       title: 'Two glasses of water before all meals',
-      tally: ["Yes", "Yes", "Yes", "Yes", "", "", ""],
-    },
+      tally: ['Yes', 'Yes', 'Yes', 'Yes', '', '', '']
+    }
   ]
 
   return (
@@ -51,7 +50,7 @@ const HabitTrackerSection = () => {
         <Text style={styles.habitTitle} category='h5'>Perfect week, Monique!</Text>
       </View>
       <Card>
-        <Text style={styles.trackerTitle} category='h6' >Habit Tracker</Text>
+        <Text style={styles.trackerTitle} category='h6'>Habit Tracker</Text>
         {
           habits.map((item, i) => {
             return <Text key={i} style={styles.trackerContent}>{item.title}</Text>
@@ -62,43 +61,49 @@ const HabitTrackerSection = () => {
   )
 }
 
-const HomeScreen = () => (
-  <AuthLayout>
-    <UpperSection />
-    <HabitTrackerSection />
-    <ExploreSection />
-  </AuthLayout>
-);
+
+const HomeScreen = props => {
+  return (
+    <AuthLayout>
+      <ScrollView>
+        <UpperSection />
+        <HabitTrackerSection />
+        <ExploreSection />
+      </ScrollView>
+      <BottomNavigationSection {...props}/>
+    </AuthLayout>
+  )
+}
 
 const styles = StyleSheet.create({
   card: {
-    marginBottom: 20,
+    marginBottom: 20
   },
   trackerContent: {
-    marginBottom: 20,
+    marginBottom: 20
   },
   trackerTitle: {
-    marginBottom: 20,
+    marginBottom: 20
   },
   habitTitle: {
     marginTop: 10
-  }, 
+  },
   subtext: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 8
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 8
   },
   title: {
-    margin: 8,
+    margin: 8
   },
   installButton: {
-    marginVertical: 4,
-  },
+    marginVertical: 4
+  }
 })
 
 export default HomeScreen

@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
-import { Button, Card, Layout, Text } from '@ui-kitten/components';
-import AuthLayout from '../../layout/AuthLayout';
+import React from 'react'
+import { ScrollView } from 'react-native'
+import AuthLayout from '../../layout/AuthLayout'
+import BottomNavigationSection from '../../components/BottomNavigationSection'
+import ExploreSection from '../../components/ExploreSection/ExploreSection'
 
-const ProgressScreen = () => (
+const ProgressScreen = props => (
   <AuthLayout>
-    <Text>Progress Screen hello!</Text>
+    <ScrollView>
+      <ExploreSection />
+    </ScrollView>
+    <BottomNavigationSection {...props} /> 
   </AuthLayout>
-);
+)
 
 export default ProgressScreen

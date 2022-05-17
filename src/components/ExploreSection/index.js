@@ -1,7 +1,6 @@
-import { Card, Layout, Text } from '@ui-kitten/components';
-import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
-
+import { Card, Layout, Text } from '@ui-kitten/components'
+import React from 'react'
+import { View, TouchableOpacity, StyleSheet } from 'react-native'
 
 const ExploreSection = () => {
   const ArticleSection = (props) => {
@@ -35,7 +34,7 @@ const ExploreSection = () => {
         id: 6,
         title: 'John Edward Ruyeras Labor',
         subtitle: 'feel the burn with just fifteen minutes'
-      },
+      }
 
     ]
 
@@ -43,10 +42,10 @@ const ExploreSection = () => {
       return (
         <View {...props} key={i}>
           <TouchableOpacity>
-          <Card style={styles.card} >
-            <Text category='h6'>{item.title}</Text>
-            <Text category='s1'>{item.subtitle}</Text>
-          </Card>
+            <Card style={styles.card}>
+              <Text category='h6'>{item.title}</Text>
+              <Text category='s1'>{item.subtitle}</Text>
+            </Card>
           </TouchableOpacity>
         </View>
       )
@@ -67,14 +66,14 @@ const ExploreSection = () => {
 
 const styles = StyleSheet.create({
   card: {
-    marginBottom: 20,
+    marginBottom: 20
   },
   subtext: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 8,
-    marginTop: 20,
-  },
+    marginTop: 20
+  }
 })
 
 export default ExploreSection

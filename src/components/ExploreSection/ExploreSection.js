@@ -25,7 +25,18 @@ const ExploreSection = () => {
         id: 4,
         title: '15-min High Intensity Interval workout',
         subtitle: 'feel the burn with just fifteen minutes'
-      }
+      },
+      {
+        id: 5,
+        title: 'Shaina Magnanao Ceniza',
+        subtitle: 'feel the burn with just fifteen minutes'
+      },
+      {
+        id: 6,
+        title: 'John Edward Ruyeras Labor',
+        subtitle: 'feel the burn with just fifteen minutes'
+      },
+
     ]
 
     return articles.map((item, i) => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import { BottomNavigation, BottomNavigationTab, Divider, Icon, Layout, TopNavigation, TopNavigationAction } from '@ui-kitten/components';
 
 const SettingsIcon = props => (
@@ -51,9 +51,11 @@ const AuthLayout = props => (
     <Layout style={styles.topNav}>
       <TopNavigationDividerShowcase />
     </Layout>
-    <Layout style={styles.childProps}>
-      {props.children}
-    </Layout>
+    <ScrollView>
+      <Layout style={styles.childProps}>
+        {props.children}
+      </Layout>
+    </ScrollView>
     <Layout style={styles.bottomNav}>
       <BottomNavigationShowcase />
     </Layout>
@@ -62,22 +64,21 @@ const AuthLayout = props => (
 
 const styles = StyleSheet.create({
   topNav: {
-    paddingTop: '10%',
-    height: '10%'
+    height: '10%',
+    marginTop: 40,
   },
   bottomNav: {
     height: '10%',
   },
   childProps: {
-    height: '80%'
+    height: '80%',
+    marginHorizontal: 20,
   },
   container: {
     flex: 1,
+
     flexDirection: 'col',
-    marginHorizontal: 25,
     height: '100%',
-    overflow: 'hidden'
   }
 })
-
 export default AuthLayout

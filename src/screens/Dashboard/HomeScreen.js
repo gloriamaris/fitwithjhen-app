@@ -8,10 +8,10 @@ import ExploreSection from '../../components/ExploreSection/ExploreSection';
 const UpperSection = () => (
   <>
     <View style={styles.subtext}>
-      <Text style={styles.text} category='s2' status='primary'>TODAY</Text>
+      <Text category='s2' status='primary'>TODAY</Text>
     </View>
     <View style={styles.row}>
-      <Text style={styles.text} category='h6'>
+      <Text category='h6'>
         Conditions are never perfect. Now is the time to
         create the life you want.
       </Text>
@@ -48,7 +48,7 @@ const HabitTrackerSection = () => {
   return (
     <>
       <View style={styles.subtext}>
-        <Text style={styles.text} category='h5'>Perfect week, Monique!</Text>
+        <Text style={styles.habitTitle} category='h5'>Perfect week, Monique!</Text>
       </View>
       <Card>
         <Text style={styles.trackerTitle} category='h6' >Habit Tracker</Text>
@@ -61,8 +61,6 @@ const HabitTrackerSection = () => {
     </>
   )
 }
-
-
 
 const HomeScreen = () => (
   <AuthLayout>
@@ -82,11 +80,13 @@ const styles = StyleSheet.create({
   trackerTitle: {
     marginBottom: 20,
   },
+  habitTitle: {
+    marginTop: 10
+  }, 
   subtext: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 8,
-    marginTop: 20,
   },
   row: {
     flexDirection: 'row',

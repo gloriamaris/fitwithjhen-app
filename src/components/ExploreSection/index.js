@@ -2,7 +2,8 @@ import { Card, Layout, Text } from '@ui-kitten/components'
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet } from 'react-native'
 
-const ExploreSection = () => {
+const ExploreSection = props => {
+
   const ArticleSection = (props) => {
     const articles = [
       {
@@ -57,6 +58,15 @@ const ExploreSection = () => {
       <View style={styles.subtext}>
         <Text style={styles.text} category='h5' status='primary'>Explore</Text>
       </View>
+      {
+        props?.fromScreen &&
+        <View style={styles.caption}>
+          <Text category='p1'>
+            Here are just a few of the ways physical activity can help you feel better, look better and live better. Because, why not?
+          </Text>
+        </View>
+      }
+
       <Layout style={styles.topContainer} level='1'>
         <ArticleSection />
       </Layout>
@@ -66,6 +76,9 @@ const ExploreSection = () => {
 
 const styles = StyleSheet.create({
   card: {
+    marginBottom: 15
+  },
+  caption: {
     marginBottom: 20
   },
   subtext: {

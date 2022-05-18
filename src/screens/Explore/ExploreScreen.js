@@ -7,7 +7,7 @@ import ExploreSection from '../../components/ExploreSection'
 const ExploreScreen = props => (
   <AuthLayout>
     <ScrollView>
-      <ExploreSection />
+      <ExploreSection fromScreen={true} />
     </ScrollView>
     <BottomNavigationSection {...props} /> 
   </AuthLayout>

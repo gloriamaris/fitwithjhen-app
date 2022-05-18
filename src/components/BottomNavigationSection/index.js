@@ -13,14 +13,12 @@ const BottomNavigationSection = props => {
 
   useEffect(() => {
     route?.params?.selectedIndex && setSelectedIndex(props.selectedIndex)
-
-    console.log({ propsSelectedIndex: route?.params?.selectedIndex || null })
   }, [])
   
   const onSelect = index => {
     const routeObj = screens.find((item, i) => i === index)
-    navigation.navigate(routeObj.name, { selectedIndex: index })
     setSelectedIndex(index)
+    navigation.navigate(routeObj.name, { selectedIndex: index })
   }
 
   return (

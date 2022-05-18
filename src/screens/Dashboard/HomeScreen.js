@@ -54,8 +54,8 @@ const HabitTrackerSection = () => {
         {
           habits.map((item, i) => {
             return (
-              <View>
-                <Text key={i}>{item.title}</Text>
+              <View key={i}>
+                <Text>{item.title}</Text>
                 <Text category='h6' style={styles.trackerContent}>{item.tally.map((tallyItem, j) => tallyItem)}</Text>
               </View>
             ) 

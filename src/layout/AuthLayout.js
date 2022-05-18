@@ -15,7 +15,7 @@ const TopNavigationDividerShowcase = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <TopNavigation
-        accessoryRight={renderSettingsAction}
+        alignment='center'
         title='FITWITHJHEN'
       />
       <Divider />

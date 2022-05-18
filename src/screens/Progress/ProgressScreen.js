@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { StyleSheet } from 'react-native'
 import { ScrollView, View } from 'react-native'
 import AuthLayout from '../../layout/AuthLayout'

@@ -27,7 +27,7 @@ const Footer = props => (
 const EditProfileScreen = props => {
   const [value, setValue] = useState('John Edward R. Labor')
   const [selectedIndex, setSelectedIndex] = useState(new IndexPath(0))
-  const [date, setDate] = useState(new Date('11-13-1994'))
+  const [date, setDate] = useState(new Date(1652227949))
 
   return (
     <AuthLayout>

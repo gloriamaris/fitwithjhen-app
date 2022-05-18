@@ -21,12 +21,6 @@ const ProgressScreen = props => {
   )
 
   const HabitsCard = () => {
-    console.log("abits?")
-    const ratings = [
-      {
-
-      }
-    ]
     const habits = [
       {
         id: 1,
@@ -120,7 +114,6 @@ const ProgressScreen = props => {
 
     const Header = props => {
       const { item } = props
-      console.log({ props })
       return (
         <View
           style={styles.header}
@@ -156,7 +149,7 @@ const ProgressScreen = props => {
   return (
     <AuthLayout>
       <ScrollView>
-        <Text style={styles.fitnessTitle} category='h5'>My Fitness Program</Text>
+        <Text style={styles.fitnessTitle} category='h5' status='primary'>Progress</Text>
         <SingleCard />
         <MiniCards />
         <Text style={styles.progressTitle} category='h6'>Weekly Sessions</Text>

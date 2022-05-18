@@ -25,27 +25,27 @@ const HabitTrackerSection = () => {
     {
       id: 1,
       title: 'Complete workout session',
-      tally: ['Yes', 'Yes', '', '']
+      tally: ['🙂', '😃', '🥴', '']
     },
     {
       id: 2,
       title: '10-min stretching on off days',
-      tally: ['Yes', 'Yes', '', '']
+      tally: ['🙂', '🙂', '', '']
     },
     {
       id: 3,
       title: 'Add vegetables during lunch and dinner',
-      tally: ['Yes', 'Yes', 'Yes', 'No', '', '', '']
+      tally: ['😄', '😄', '😅', '😐', '', '', '']
     },
     {
       id: 4,
       title: 'Two glasses of water before all meals',
-      tally: ['Yes', 'Yes', 'Yes', 'Yes', '', '', '']
+      tally: ['😄', '😄', '🙂', '🙂', '', '', '']
     }
   ]
 
   return (
-    <>
+    <View style={styles.habitSection}>
       <View style={styles.subtext}>
         <Text style={styles.habitTitle} category='h5'>Perfect week, Monique!</Text>
       </View>
@@ -53,11 +53,16 @@ const HabitTrackerSection = () => {
         <Text style={styles.trackerTitle} category='h6'>Habit Tracker</Text>
         {
           habits.map((item, i) => {
-            return <Text key={i} style={styles.trackerContent}>{item.title}</Text>
+            return (
+              <View>
+                <Text key={i}>{item.title}</Text>
+                <Text category='h6' style={styles.trackerContent}>{item.tally.map((tallyItem, j) => tallyItem)}</Text>
+              </View>
+            ) 
           })
         }
       </Card>
-    </>
+    </View>
   )
 }
 
@@ -80,13 +85,16 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   trackerContent: {
-    marginBottom: 20
+    marginBottom: 10
   },
   trackerTitle: {
-    marginBottom: 20
+    marginBottom: 10
   },
   habitTitle: {
-    marginTop: 10
+    marginTop: 20
+  },
+  habitSection: {
+    marginBottom: 20
   },
   subtext: {
     flexDirection: 'row',

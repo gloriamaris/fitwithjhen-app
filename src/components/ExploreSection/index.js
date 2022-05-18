@@ -71,8 +71,7 @@ const styles = StyleSheet.create({
   subtext: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
-    marginTop: 20
+    marginBottom: 8
   }
 })
 

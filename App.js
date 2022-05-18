@@ -41,7 +41,7 @@ export default () => (
     <ApplicationProvider {...eva} theme={{ ...eva.light, ...theme }}>
       <NavigationContainer>
         <Stack.Navigator>
-          {screens.map((item, i) => <Stack.Screen key={i} name={item.name} component={item.component} options={{ headerShown: true }} />)}
+          {screens.map((item, i) => <Stack.Screen key={i} name={item.name} component={item.component} options={{ headerShown: false }} />)}
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>

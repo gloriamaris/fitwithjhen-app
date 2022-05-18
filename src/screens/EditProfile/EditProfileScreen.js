@@ -27,7 +27,8 @@ const Footer = props => (
 const EditProfileScreen = props => {
   const [value, setValue] = useState('John Edward R. Labor')
   const [selectedIndex, setSelectedIndex] = useState(new IndexPath(0))
-  const [date, setDate] = useState(new Date(1652227949))
+  const [date, setDate] = useState(new Date())
+  const [height, setHeight] = useState(166)
 
   return (
     <AuthLayout>
@@ -64,11 +65,10 @@ const EditProfileScreen = props => {
               accessoryRight={CalendarIcon}
               />
           <Input
-            style={styles.fitnessTitle}
             placeholder='Height in cm'
-            value={value}
+            value={height}
             label='Height (in cm)'
-            onChangeText={nextValue => setValue(nextValue)}
+            onChangeText={nextHeight => setHeight(nextHeight)}
             />
         </Card>
       </View>

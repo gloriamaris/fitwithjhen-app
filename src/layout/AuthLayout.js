@@ -23,35 +23,6 @@ const TopNavigationDividerShowcase = () => {
   )
 }
 
-const BottomNavigationShowcase = props => {
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const HomeIcon = props => <Icon {...props} name='home' />
-  const ExploreIcon = props => <Icon {...props} name='flash' />
-  const ProgressIcon = props => <Icon {...props} name='bar-chart' />
-  const ProfileIcon = props => <Icon {...props} name='person' />
-
-  const onSelect = index => {
-    console.log({ children: props.children })
-    const routeObj = screens.find(item => item.id === index)
-    // props.navigate(routeObj.name)
-    setSelectedIndex(index)
-  }
-
-  return (
-    <BottomNavigation
-      style={styles.bottomNav}
-      selectedIndex={selectedIndex}
-      onSelect={index => onSelect(index)}
-      appearance='noIndicator'
-    >
-      <BottomNavigationTab title='Home' icon={HomeIcon} />
-      <BottomNavigationTab title='Explore' icon={ExploreIcon} />
-      <BottomNavigationTab title='Progress' icon={ProgressIcon} />
-      <BottomNavigationTab title='Profile' icon={ProfileIcon} />
-    </BottomNavigation>
-  )
-}
-
 const AuthLayout = props => {
   return (
     <Layout style={styles.container} level='1'>

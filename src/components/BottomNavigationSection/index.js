@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet } from 'react-native'
-import { BottomNavigation, BottomNavigationTab, Icon } from '@ui-kitten/components'
+import { StyleSheet, View, Pressable } from 'react-native'
+import { BottomNavigation, BottomNavigationTab, Button, Icon, Modal, Text } from '@ui-kitten/components'
 import { screens } from '../../../App'
 
 const BottomNavigationSection = props => {
   const [selectedIndex, setSelectedIndex] = useState(0)
+  const [visible, setVisible] = useState(false)
+
   const HomeIcon = props => <Icon {...props} name='home' />
   const ExploreIcon = props => <Icon {...props} name='flash' />
   const ProgressIcon = props => <Icon {...props} name='bar-chart' />
   const ProfileIcon = props => <Icon {...props} name='person' />
-  const PlusOutlineIcon = props => <Icon {...props} name='plus-circle-outline' />
+  const PlusOutlineIcon = props => <Icon {...props  } name='plus-outline' />
   const { navigation, route } = props
 
   useEffect(() => {
@@ -31,9 +33,34 @@ const BottomNavigationSection = props => {
     >
       <BottomNavigationTab title='Home' icon={HomeIcon} />
       <BottomNavigationTab title='Explore' icon={ExploreIcon} />
-      <BottomNavigationTab title='' icon={PlusOutlineIcon} />
+      <View>
+        <Button 
+          status='primary'
+          accessoryLeft={PlusOutlineIcon}
+          style={styles.plusIcon}
+          onPress={() => setVisible(!visible)}
+          ></Button>
+      </View>
       <BottomNavigationTab title='Progress' icon={ProgressIcon} />
-      <BottomNavigationTab style={styles.plusOutline} title='Profile' icon={ProfileIcon} />
+      <BottomNavigationTab title='Profile' icon={ProfileIcon} />
+      <Modal 
+        animationType='fade'
+        transparent={true}
+        visible={visible}
+        onRequestClose={() => setVisible(!visible)}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => setVisible(!visible)}
+              >
+                <Text status='basic'>Hide Modal</Text>
+              </Pressable>
+            </View>
+          </View>
+      </Modal> 
     </BottomNavigation>
   )
 }
@@ -44,7 +71,39 @@ const styles = StyleSheet.create({
     position: 'fixed'
   },
   plusOutline: {
-    height: '100%'
+    height: '100%',
+    fontSize: 100
+  },
+  plusIcon: {
+    borderRadius: 100,
+    width: 60,
+    height: 60
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    width: '80%',
+    height: '40%',
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  },
+  modalBackground: {
+    backgroundColor: 'black'
   }
 })
 

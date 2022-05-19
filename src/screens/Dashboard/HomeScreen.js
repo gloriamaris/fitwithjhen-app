@@ -1,14 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { StyleSheet, View, ScrollView, Modal, Pressable } from 'react-native'
-import { Button, Card, Text } from '@ui-kitten/components'
+import { Button, Card, Icon, Text } from '@ui-kitten/components'
 import AuthLayout from '../../layout/AuthLayout'
 import BottomNavigationSection from '../../components/BottomNavigationSection'
 import ExploreSection from '../../components/ExploreSection'
 import HabitTrackerSection from '../../components/HabitTrackerSection'
 
 const UpperSection = () => {
-  const [visible, setVisible] = useState(false)
-  
+  const [isWorkoutStarted, setWorkoutStarted] = useState(false)
+
+  const onPress = value => {
+    setWorkoutStarted(!value)
+  }
+
+  const TimerIcon = props => (
+    <Icon
+      {...props}
+      name='clock-outline'
+      />
+  )
+
   return (
     <>
       <View style={styles.subtext}>
@@ -21,12 +32,13 @@ const UpperSection = () => {
         </Text>
       </View>
       <Button 
-        onPress={() => setVisible(!visible)}
+        onPress={() => onPress(isWorkoutStarted)}
         style={styles.installButton}
+        status={isWorkoutStarted ? 'info' : 'primary'}
         >
-          START WORKOUT
+          { isWorkoutStarted ? 'FINISH WORKOUT' : 'START WORKOUT' }
       </Button>
-      <Modal 
+      {/* <Modal 
         animationType='fade'
         transparent={true}
         visible={visible}
@@ -43,7 +55,7 @@ const UpperSection = () => {
               </Pressable>
             </View>
           </View>
-      </Modal>
+      </Modal> */}
     </>
   )
 }

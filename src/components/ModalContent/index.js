@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Text } from '@ui-kitten/components'
 import { View, StyleSheet } from 'react-native'
 
-const HabitTrackerSection = props => {
+const ModalContent = props => {
 
   const habits = [
     {
@@ -27,20 +27,9 @@ const HabitTrackerSection = props => {
     }
   ]
 
-  const addtlProps = props?.fromScreen && {
-    appearance: 'outline',
-    status: 'primary'
-  }
-
   return (
     <View style={styles.habitSection}>
-      <View style={styles.subtext}>
-        <Text style={styles.habitTitle} category='h5'>Perfect week, Monique!</Text>
-      </View>
-      <Card
-        {...addtlProps}
-      >
-        <Text style={styles.trackerTitle} category='h6'>Habit Tracker</Text>
+        <Text category='h6'>Habit Tracker</Text>
         {
           habits.map((item, i) => {
             return (
@@ -51,35 +40,39 @@ const HabitTrackerSection = props => {
             ) 
           })
         }
-      </Card>
     </View>
   )
+
 }
 
 const styles = StyleSheet.create({
-  card: {
-    marginBottom: 20
+  container: {
+    flex: 1,
+    flexDirection: 'col',
+    height: '100%'
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 20,
+    width: '30%',
+    height: '100pt',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
   },
   trackerContent: {
     marginBottom: 15
   },
-  trackerTitle: {
-    marginBottom: 10
-  },
-  habitTitle: {
-    marginTop: 20
-  },
-  habitSection: {
-    marginBottom: 20
-  },
-  subtext: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8
-  },
-  title: {
-    margin: 8
-  },
 })
 
-export default HabitTrackerSection
+export default ModalContent

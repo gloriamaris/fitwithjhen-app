@@ -1,7 +1,11 @@
-import React from 'react'
-import { StyleSheet, SafeAreaView, View } from 'react-native'
-import { Divider, Icon, Layout, TopNavigation, TopNavigationAction } from '@ui-kitten/components'
+import React, { useState } from 'react'
+import { StyleSheet, SafeAreaView, View, Pressable } from 'react-native'
+import { Divider, Icon, Layout, Modal, Text, TopNavigation, TopNavigationAction } from '@ui-kitten/components'
 import BottomNavigationSection from '../components/BottomNavigationSection'
+import { useHookstate } from '@hookstate/core'
+import { routeStore } from '../store'
+import HabitTrackerSection from '../components/HabitTrackerSection'
+import ModalContent from '../components/ModalContent'
 
 const TopNavigationDividerShowcase = () => {
   return (
@@ -16,6 +20,10 @@ const TopNavigationDividerShowcase = () => {
 }
 
 const AuthLayout = props => {
+  const globalState = useHookstate(routeStore)
+  const { visible } = globalState
+
+  console.log({ visible: visible.get() })
   return (
     <Layout style={styles.container} level='1'>
       <Layout style={styles.topNav}>
@@ -27,6 +35,22 @@ const AuthLayout = props => {
       <View>
         <BottomNavigationSection {...props} />
       </View>
+
+      <Modal
+        animationType='fade'
+        transparent={true}
+        visible={visible.get()}
+        onRequestClose={() => visible.set(!visible)}
+        style={styles.modalView}
+      >
+        <View style={styles.centeredView}>
+          <Pressable onPress={() => visible.set(!visible)}>
+            <View>
+              <ModalContent />
+            </View>
+          </Pressable>
+        </View>
+      </Modal>
     </Layout>
   )
 }
@@ -45,9 +69,27 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-
     flexDirection: 'col',
     height: '100%'
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  modalView: {
+    backgroundColor: "white",
+    borderRadius: 20,
+    width: '90%',
+    height: '50%',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
   }
 })
 

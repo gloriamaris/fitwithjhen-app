@@ -6,8 +6,6 @@ import { useHookstate } from '@hookstate/core'
 import { routeStore } from '../../store'
 
 const BottomNavigationSection = props => {
-  // const [selectedIndex, setSelectedIndex] = React.useState(0)
-  // const [visible, setVisible] = React.useState(false)
   const globalState = useHookstate(routeStore)
 
   const HomeIcon = props => <Icon {...props} name='home' />
@@ -15,16 +13,7 @@ const BottomNavigationSection = props => {
   const ProgressIcon = props => <Icon {...props} name='bar-chart' />
   const ProfileIcon = props => <Icon {...props} name='person' />
   const PlusOutlineIcon = props => <Icon {...props  } name='plus-outline' />
-  const { selectedIndex, routeName } = globalState
-  const value = selectedIndex.get()
-
-  // console.log(selectedIndex.get())
-
-  useEffect(() => {
-    console.log('====== ', selectedIndex.get(), routeName.get())
-  }, [
-    value
-  ])
+  const { selectedIndex, routeName, visible } = globalState
 
   const onSelect = index => {
     const routeObj = screens.find((item, i) => item.id === index)
@@ -37,7 +26,7 @@ const BottomNavigationSection = props => {
     <BottomNavigation
       style={styles.bottomNav}
       appearance='noIndicator'
-      selectedIndex={value}
+      selectedIndex={selectedIndex.get()}
       onSelect={index => onSelect(index)}
     >
       <BottomNavigationTab title='Home' icon={HomeIcon} />
@@ -47,28 +36,11 @@ const BottomNavigationSection = props => {
           status='primary'
           accessoryLeft={PlusOutlineIcon}
           style={styles.plusIcon}
-          onPress={() => setVisible(!visible)}
+          onPress={() => visible.set(!visible.get())}
           ></Button>
       </View>
       <BottomNavigationTab title='Progress' icon={ProgressIcon} />
       <BottomNavigationTab title='Profile' icon={ProfileIcon} />
-      {/* <Modal 
-        animationType='fade'
-        transparent={true}
-        visible={visible}
-        onRequestClose={() => setVisible(!visible)}
-        >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                onPress={() => setVisible(!visible)}
-              >
-                <Text status='basic'>Hide Modal</Text>
-              </Pressable>
-            </View>
-          </View>
-      </Modal>  */}
     </BottomNavigation>
   )
 }

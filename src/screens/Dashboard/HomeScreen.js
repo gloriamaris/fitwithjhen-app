@@ -36,7 +36,7 @@ const UpperSection = () => {
       <Button 
         onPress={() => onPress(isWorkoutStarted)}
         style={styles.installButton}
-        status={isWorkoutStarted ? 'info' : 'primary'}
+        status={isWorkoutStarted ? 'warning' : 'primary'}
         >
           { isWorkoutStarted ? 'FINISH WORKOUT' : 'START WORKOUT' }
       </Button>

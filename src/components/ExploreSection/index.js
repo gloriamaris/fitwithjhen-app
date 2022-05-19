@@ -1,6 +1,7 @@
 import { Card, Layout, Text } from '@ui-kitten/components'
 import React from 'react'
 import { View, TouchableOpacity, StyleSheet } from 'react-native'
+import { ImageBackground } from 'react-native'
 
 const ExploreSection = props => {
 
@@ -39,14 +40,16 @@ const ExploreSection = props => {
 
     ]
 
+    const source = { uri: 'https://images.summitmedia-digital.com/preview/images/articles/2016/04/18/belle/nm.jpg' }
+
     return articles.map((item, i) => {
       return (
         <View {...props} key={i}>
           <TouchableOpacity>
-            <Card style={styles.card}>
-              <Text category='h6'>{item.title}</Text>
-              <Text category='s1'>{item.subtitle}</Text>
-            </Card>
+                <Card style={styles.card}>
+                    <Text category='h6' status='info'>{item.title}</Text>
+                    <Text category='s1'>{item.subtitle}</Text>
+                </Card>
           </TouchableOpacity>
         </View>
       )
@@ -76,7 +79,8 @@ const ExploreSection = props => {
 
 const styles = StyleSheet.create({
   card: {
-    marginBottom: 15
+    marginBottom: 15,
+    padding: 0,
   },
   caption: {
     marginBottom: 20
@@ -85,6 +89,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 8
+  },
+  imageBg: {
+    padding: 0,
+    opacity: '10%'
   }
 })
 

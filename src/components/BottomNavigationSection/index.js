@@ -9,6 +9,7 @@ const BottomNavigationSection = props => {
   const ExploreIcon = props => <Icon {...props} name='flash' />
   const ProgressIcon = props => <Icon {...props} name='bar-chart' />
   const ProfileIcon = props => <Icon {...props} name='person' />
+  const PlusOutlineIcon = props => <Icon {...props} name='plus-circle-outline' />
   const { navigation, route } = props
 
   useEffect(() => {
@@ -30,8 +31,9 @@ const BottomNavigationSection = props => {
     >
       <BottomNavigationTab title='Home' icon={HomeIcon} />
       <BottomNavigationTab title='Explore' icon={ExploreIcon} />
+      <BottomNavigationTab title='' icon={PlusOutlineIcon} />
       <BottomNavigationTab title='Progress' icon={ProgressIcon} />
-      <BottomNavigationTab title='Profile' icon={ProfileIcon} />
+      <BottomNavigationTab style={styles.plusOutline} title='Profile' icon={ProfileIcon} />
     </BottomNavigation>
   )
 }
@@ -41,6 +43,9 @@ const styles = StyleSheet.create({
     height: '10%',
     position: 'fixed'
   },
+  plusOutline: {
+    height: '100%'
+  }
 })
 
 export default BottomNavigationSection

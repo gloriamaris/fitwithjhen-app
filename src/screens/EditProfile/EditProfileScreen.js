@@ -28,7 +28,7 @@ const EditProfileScreen = props => {
   const [value, setValue] = useState('John Edward R. Labor')
   const [selectedIndex, setSelectedIndex] = useState(new IndexPath(0))
   const [date, setDate] = useState(new Date())
-  const [height, setHeight] = useState(166)
+  const [height, setHeight] = useState('166')
 
   return (
     <AuthLayout>

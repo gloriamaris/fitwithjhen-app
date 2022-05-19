@@ -5,6 +5,7 @@ import AuthLayout from '../../layout/AuthLayout'
 import BottomNavigationSection from '../../components/BottomNavigationSection'
 import ExploreSection from '../../components/ExploreSection'
 import { Card, Divider, Layout, Text } from '@ui-kitten/components'
+import HabitTrackerSection from '../../components/HabitTrackerSection'
 
 const ProgressScreen = props => {
   const MiniCards = () => (
@@ -155,7 +156,7 @@ const ProgressScreen = props => {
         <Text style={styles.progressTitle} category='h6'>Weekly Sessions</Text>
         <WeeklySessions />
         <Text style={styles.progressTitle} category='h6'>Habits</Text>
-        <HabitsCard />
+        <HabitTrackerSection fromScreen={true} />
       </ScrollView>
       <BottomNavigationSection {...props} />
     </AuthLayout>

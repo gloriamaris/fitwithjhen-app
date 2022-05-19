@@ -1,6 +1,7 @@
 import React from 'react'
-import { StyleSheet, SafeAreaView } from 'react-native'
+import { StyleSheet, SafeAreaView, View } from 'react-native'
 import { Divider, Icon, Layout, TopNavigation, TopNavigationAction } from '@ui-kitten/components'
+import BottomNavigationSection from '../components/BottomNavigationSection'
 
 const TopNavigationDividerShowcase = () => {
   return (
@@ -23,6 +24,9 @@ const AuthLayout = props => {
       <Layout style={styles.childProps}>
         {props.children}
       </Layout>
+      <View>
+        <BottomNavigationSection {...props} />
+      </View>
     </Layout>
   )
 }
@@ -33,7 +37,7 @@ const styles = StyleSheet.create({
     marginTop: 40
   },
   bottomNav: {
-    height: '10%'
+    height: '10%',
   },
   childProps: {
     height: '80%',

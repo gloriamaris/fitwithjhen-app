@@ -72,7 +72,6 @@ const EditProfileScreen = props => {
             />
         </Card>
       </View>
-      <BottomNavigationSection {...props} />
     </AuthLayout>
   )
 }

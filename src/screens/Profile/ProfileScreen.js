@@ -60,7 +60,6 @@ const ProfileScreen = props => {
           profileScreens.map((item, i) => <MenuItem key={i} title={item.title} accessoryRight={item.accessoryRight}/>)
         }
       </Menu>
-      <BottomNavigationSection {...props} />
     </AuthLayout>
   )
 }

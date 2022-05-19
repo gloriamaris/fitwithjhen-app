@@ -5,6 +5,8 @@ import AuthLayout from '../../layout/AuthLayout'
 import BottomNavigationSection from '../../components/BottomNavigationSection'
 import ExploreSection from '../../components/ExploreSection'
 import HabitTrackerSection from '../../components/HabitTrackerSection'
+import store from '../../store'
+import withNavigation from '../../hoc/withNavigation'
 
 const UpperSection = () => {
   const [isWorkoutStarted, setWorkoutStarted] = useState(false)
@@ -38,24 +40,6 @@ const UpperSection = () => {
         >
           { isWorkoutStarted ? 'FINISH WORKOUT' : 'START WORKOUT' }
       </Button>
-      {/* <Modal 
-        animationType='fade'
-        transparent={true}
-        visible={visible}
-        onRequestClose={() => setVisible(!visible)}
-        >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setVisible(!visible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-            </View>
-          </View>
-      </Modal> */}
     </>
   )
 }
@@ -68,7 +52,6 @@ const HomeScreen = props => {
         <HabitTrackerSection />
         <ExploreSection />
       </ScrollView>
-      <BottomNavigationSection {...props}/>
     </AuthLayout>
   )
 }
@@ -133,4 +116,6 @@ const styles = StyleSheet.create({
   }
 })
 
-export default HomeScreen
+// withNavigation(HomeScreen)
+
+export default withNavigation(HomeScreen)

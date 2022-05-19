@@ -1,34 +1,43 @@
-import React, { useState, useEffect } from 'react'
-import { StyleSheet, View, Pressable } from 'react-native'
+import React, { useEffect } from 'react'
+import { StyleSheet, View } from 'react-native'
 import { BottomNavigation, BottomNavigationTab, Button, Icon, Modal, Text } from '@ui-kitten/components'
 import { screens } from '../../../App'
+import { useHookstate } from '@hookstate/core'
+import { routeStore } from '../../store'
 
 const BottomNavigationSection = props => {
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const [visible, setVisible] = useState(false)
+  // const [selectedIndex, setSelectedIndex] = React.useState(0)
+  // const [visible, setVisible] = React.useState(false)
+  const globalState = useHookstate(routeStore)
 
   const HomeIcon = props => <Icon {...props} name='home' />
   const ExploreIcon = props => <Icon {...props} name='flash' />
   const ProgressIcon = props => <Icon {...props} name='bar-chart' />
   const ProfileIcon = props => <Icon {...props} name='person' />
   const PlusOutlineIcon = props => <Icon {...props  } name='plus-outline' />
-  const { navigation, route } = props
+  const { selectedIndex, routeName } = globalState
+  const value = selectedIndex.get()
+
+  // console.log(selectedIndex.get())
 
   useEffect(() => {
-    route?.params?.selectedIndex && setSelectedIndex(props.selectedIndex)
-  }, [])
-  
+    console.log('====== ', selectedIndex.get(), routeName.get())
+  }, [
+    value
+  ])
+
   const onSelect = index => {
-    const routeObj = screens.find((item, i) => i === index)
-    setSelectedIndex(index)
-    navigation.navigate(routeObj.name, { selectedIndex: index })
+    const routeObj = screens.find((item, i) => item.id === index)
+    
+    selectedIndex.set(index)
+    routeName.set(routeObj.name)
   }
 
   return (
     <BottomNavigation
       style={styles.bottomNav}
       appearance='noIndicator'
-      selectedIndex={route?.params?.selectedIndex || selectedIndex}
+      selectedIndex={value}
       onSelect={index => onSelect(index)}
     >
       <BottomNavigationTab title='Home' icon={HomeIcon} />
@@ -43,7 +52,7 @@ const BottomNavigationSection = props => {
       </View>
       <BottomNavigationTab title='Progress' icon={ProgressIcon} />
       <BottomNavigationTab title='Profile' icon={ProfileIcon} />
-      <Modal 
+      {/* <Modal 
         animationType='fade'
         transparent={true}
         visible={visible}
@@ -53,22 +62,22 @@ const BottomNavigationSection = props => {
             <View style={styles.modalView}>
               <Text style={styles.modalText}>Hello World!</Text>
               <Pressable
-                style={[styles.button, styles.buttonClose]}
                 onPress={() => setVisible(!visible)}
               >
                 <Text status='basic'>Hide Modal</Text>
               </Pressable>
             </View>
           </View>
-      </Modal> 
+      </Modal>  */}
     </BottomNavigation>
   )
 }
 
 const styles = StyleSheet.create({
   bottomNav: {
-    height: '10%',
-    position: 'fixed'
+    height: '0%',
+    marginTop: -30,
+    paddingTop: 0
   },
   plusOutline: {
     height: '100%',
@@ -77,7 +86,8 @@ const styles = StyleSheet.create({
   plusIcon: {
     borderRadius: 100,
     width: 60,
-    height: 60
+    height: 60,
+    marginLeft: 10
   },
   centeredView: {
     flex: 1,

@@ -157,7 +157,6 @@ const ProgressScreen = props => {
         <Text style={styles.progressTitle} category='h6'>Habits</Text>
         <HabitTrackerSection fromScreen={true} />
       </ScrollView>
-      <BottomNavigationSection {...props} />
     </AuthLayout>
   )
 }

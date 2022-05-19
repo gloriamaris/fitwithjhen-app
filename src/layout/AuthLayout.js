@@ -1,17 +1,8 @@
-import React, { useState } from 'react'
-import { StyleSheet, ScrollView, SafeAreaView } from 'react-native'
-import { BottomNavigation, BottomNavigationTab, Divider, Icon, Layout, TopNavigation, TopNavigationAction } from '@ui-kitten/components'
-import { screens } from '../constants/screens'
-
-const SettingsIcon = props => (
-  <Icon {...props} name='settings' />
-)
+import React from 'react'
+import { StyleSheet, SafeAreaView } from 'react-native'
+import { Divider, Icon, Layout, TopNavigation, TopNavigationAction } from '@ui-kitten/components'
 
 const TopNavigationDividerShowcase = () => {
-  const renderSettingsAction = () => (
-    <TopNavigationAction icon={SettingsIcon} />
-  )
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <TopNavigation

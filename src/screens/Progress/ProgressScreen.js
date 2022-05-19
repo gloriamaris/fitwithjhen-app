@@ -3,8 +3,7 @@ import { StyleSheet } from 'react-native'
 import { ScrollView, View } from 'react-native'
 import AuthLayout from '../../layout/AuthLayout'
 import BottomNavigationSection from '../../components/BottomNavigationSection'
-import ExploreSection from '../../components/ExploreSection'
-import { Card, Divider, Layout, Text } from '@ui-kitten/components'
+import { Card, Layout, Text } from '@ui-kitten/components'
 import HabitTrackerSection from '../../components/HabitTrackerSection'
 
 const ProgressScreen = props => {

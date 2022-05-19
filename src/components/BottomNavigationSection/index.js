@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet } from 'react-native'
 import { BottomNavigation, BottomNavigationTab, Icon } from '@ui-kitten/components'
-import { screens } from '../../constants/screens'
+import { screens } from '../../../App'
 
 const BottomNavigationSection = props => {
   const [selectedIndex, setSelectedIndex] = useState(0)

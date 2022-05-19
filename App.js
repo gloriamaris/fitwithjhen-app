@@ -13,7 +13,7 @@ import ProgressScreen from './src/screens/Progress/ProgressScreen'
 import EditProfileScreen from './src/screens/EditProfile/EditProfileScreen'
 
 const Stack = createStackNavigator()
-const Tabs = createBottomTabNavigator()
+
 
 export const screens = [
   {
@@ -27,17 +27,17 @@ export const screens = [
     component: ExploreScreen
   },
   {
-    id: 2,
-    name: 'Profile',
-    component: ProfileScreen
-  },
-  {
     id: 3,
     name: 'Progress',
     component: ProgressScreen
   },
   {
     id: 4,
+    name: 'Profile',
+    component: ProfileScreen
+  },
+  {
+    id: 5,
     name: 'EditProfile',
     component: EditProfileScreen
   },

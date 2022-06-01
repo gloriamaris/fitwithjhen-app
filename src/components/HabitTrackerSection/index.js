@@ -35,7 +35,7 @@ const HabitTrackerSection = props => {
   return (
     <View style={styles.habitSection}>
       <View style={styles.subtext}>
-        <Text style={styles.habitTitle} category='h5'>Perfect week, Monique!</Text>
+        <Text style={styles.habitTitle} category='h5'>Perfect week, John!</Text>
       </View>
       <Card
         {...addtlProps}

@@ -7,12 +7,11 @@ const withNavigation = WrappedComponent => props => {
   const { selectedIndex, routeName } = globalState
   const { navigation } = props
 
-  console.log('props routeName', routeName.get())
-  console.log({ routeName })
-
+  console.log(routeName.get({ routeName }))
+  console.log(JSON.stringify(routeName.get()))  
   useEffect(() => {
     routeName.get() && navigation.navigate(routeName.get())
-    console.log(routeName.get())
+    console.log(JSON.stringify(routeName.get()))  
   }, [
     routeName.get()
   ])

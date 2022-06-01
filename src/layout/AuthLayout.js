@@ -23,7 +23,6 @@ const AuthLayout = props => {
   const globalState = useHookstate(routeStore)
   const { visible } = globalState
 
-  console.log({ visible: visible.get() })
   return (
     <Layout style={styles.container} level='1'>
       <Layout style={styles.topNav}>

@@ -29,12 +29,12 @@ const ExploreSection = props => {
       },
       {
         id: 5,
-        title: 'Shaina Magnanao Ceniza',
+        title: '10-min core workouts',
         subtitle: 'feel the burn with just fifteen minutes'
       },
       {
         id: 6,
-        title: 'John Edward Ruyeras Labor',
+        title: '10-min lower body strength workouts',
         subtitle: 'feel the burn with just fifteen minutes'
       }
 

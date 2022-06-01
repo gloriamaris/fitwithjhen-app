@@ -8,7 +8,7 @@ const ProfileScreen = props => {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const ForwardIcon = props => <Icon {...props} name='arrow-ios-forward' />
 
-  console.log({ props })
+  console.log(JSON.stringify(props))  
 
   const profileScreens = [
     {
